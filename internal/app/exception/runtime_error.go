@@ -21,10 +21,15 @@ func (re *RuntimeError) Unwrap() error{
 }
 
 func (re *RuntimeError) ToR() *response.R {
+	return re.ToRWithStatusCode(http.StatusOK)
+}
+
+func (re *RuntimeError) ToRWithStatusCode(statusCode int) *response.R {
 	return &response.R{
-		StatusCode: http.StatusOK,
+		StatusCode: statusCode,
 		Code:       re.Code,
 		Msg:        re.Msg,
 		Data:       re.Data,
 	}
 }
+

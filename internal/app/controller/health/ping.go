@@ -5,6 +5,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+type x struct{
+	X string `json:"x"`
+}
+
 func Ping(ctx *gin.Context) {
-	response.Json(ctx, response.Success)
+	//_,err:=ioutil.ReadFile("")
+	//response.AbortWithError(ctx,err)
+	response.SuccessWithNoData(ctx)
 }
